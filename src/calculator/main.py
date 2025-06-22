@@ -2,12 +2,11 @@ class Calculator:
     def add (self, a, b):
         return a + b
 
-    def subtraCT(self, a, b):
+    def subtract(self, a, b):
         return a - b
 
     def multiply(self, a, b):
-        result = a * b
-        return result
+        return a * b
 
     def divide(self, a, b):
         if b == 0:
