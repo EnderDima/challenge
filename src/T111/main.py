@@ -4,7 +4,7 @@ from lib import Interface
 game = Game()
 in_fa = Interface()
 
-print("Добро пожаловать в игру! Вам необходимо угадать слово за 7 попыток.")
+print("Добро пожаловать в игру!!! Вам необходимо угадать слово за 7 попыток.")
 loop = True
 game.interface_string(1, 0)
 game.interface_figure(0)
