@@ -7,13 +7,14 @@ class Book(Lib):
     def __init__(self, book):
         Lib.__init__(self)
         self.book = book
-        self.book_path = self.elektron_lib_path / book   
+        self.book_path = self.elektron_lib_path / book
     def choose_book(self): # Фунция проверки существования редактируемой книги
         base_dir = self.book_path
         if base_dir.exists():
             print("Книга выбрана: " + str(self.book))
             return(True) 
-        print("Такой книги нет")   
+        print("Такой книги нет")
+        return None  
     def add_chapter(self, name_chapter): # Функция добавления главы в книгу
         number = 0
         base_dir = Path(__file__).parent.parent
