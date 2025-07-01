@@ -3,7 +3,7 @@ from lib.book import Book
 lib = Lib()
 
 loop = True
-while loop == True:
+while loop:
     print("Добро пожаловать в редактор библиотеки. Выберите действие:")
     print("1 - Создать книгу")
     print("2 - Удалить книгу")
@@ -24,7 +24,7 @@ while loop == True:
         lib.chenge_name(old_book, new_book)
     elif choice == '4':
         loop2 = True
-        while loop2 == True:
+        while loop2:
             choice_book = input("Введите название книги которую хотите редактировать: ")
             book = Book(choice_book)
             check_book = book.choose_book()
@@ -44,7 +44,9 @@ while loop == True:
                 elif choice_used_chapter == '3':
                     name_chapter = input("Введите название главу которую хотите удалить: ")+ '.txt'
                     book.delete_chapter(name_chapter)
-            else: loop2 = False
+            else: 
+                loop2 = False
     elif choice == '5':
-        lib.full_info()    
-    else: loop = False
+        lib.full_info()
+    else: 
+        loop = False
