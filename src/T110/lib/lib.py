@@ -15,7 +15,7 @@ class Lib():
         book_path = elektron_lib_path / name_book
         try:
             book_path.mkdir(exist_ok=False) # проверка на существование одинаковых по названию книг
-        except FileExistsError: 
+        except FileExistsError:
             print("Книга с таким названием уже существует.")
         book_path = elektron_lib_path / name_book / "info.txt" # Создание файла с информацией
         with open(book_path, 'w', encoding="utf-8") as info:
@@ -24,6 +24,7 @@ class Lib():
         with open(Path(__file__).parent / 'id' , 'w', encoding="utf-8" ) as id:
             self.id = str(int(self.id)+1)
             id.write(self.id)
+        return None
     def delete_book(self, name_book): # Функция удаления книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -31,8 +32,9 @@ class Lib():
         try:
             book_path = elektron_lib_path / name_book # Проверка на существование требуемой для удаления книги
             shutil.rmtree(book_path) # Удаление книги
-        except FileNotFoundError: 
-            print("Такой книги не существует") 
+        except FileNotFoundError:
+            print("Такой книги не существует")
+        return None
     def chenge_name(self, name_book, new_name_book): #  Функция по смене названия книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -41,8 +43,9 @@ class Lib():
             old_path = elektron_lib_path / name_book
             new_path = elektron_lib_path / new_name_book
             os.rename(old_path, new_path)      # Смена названия книги
-        except FileNotFoundError: 
+        except FileNotFoundError:
             print("Такой книги не существует")
+        return None
     def full_info(self): # Функция для вывода всей информации
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -52,3 +55,4 @@ class Lib():
             with open(info_dir, 'r', encoding="utf-8") as info:
                 print(info.read())
             print('\n')
+        return None
