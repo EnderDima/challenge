@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 import shutil
 
-class Lib(): 
+class Lib():
     def __init__(self):
         with open(Path(__file__).parent / 'id' , 'r', encoding="utf-8" ) as id:
             self.id = id.read()
@@ -20,7 +20,7 @@ class Lib():
         book_path = elektron_lib_path / name_book / "info.txt" # Создание файла с информацией
         with open(book_path, 'w', encoding="utf-8") as info:
             # Запись данных в файл с информацией
-            info.write("Индекс: " + str(self.id) + '\n Название книги: ' + name_book + '\n глав 0') 
+            info.write("Индекс: " + str(self.id) + '\n Название книги: ' + name_book + '\n глав 0')
         with open(Path(__file__).parent / 'id' , 'w', encoding="utf-8" ) as id:
             self.id = str(int(self.id)+1)
             id.write(self.id)
@@ -34,8 +34,8 @@ class Lib():
             shutil.rmtree(book_path) # Удаление книги
         except FileNotFoundError:
             print("Такой книги не существует")
-        return None
-    def chenge_name(self, name_book, new_name_book): #  Функция по смене названия книги
+            return False
+    def chenge_name(self, name_book, new_name_book): # Функция по смене названия книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
         elektron_lib_path.mkdir(exist_ok=True)
@@ -45,7 +45,7 @@ class Lib():
             os.rename(old_path, new_path)      # Смена названия книги
         except FileNotFoundError:
             print("Такой книги не существует")
-        return None
+            return False
     def full_info(self): # Функция для вывода всей информации
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -55,4 +55,3 @@ class Lib():
             with open(info_dir, 'r', encoding="utf-8") as info:
                 print(info.read())
             print('\n')
-        return None

@@ -2,7 +2,6 @@ from pathlib import Path
 from .lib import Lib
 import os
 
-
 class Book(Lib):
     def __init__(self, book):
         Lib.__init__(self)
@@ -14,7 +13,7 @@ class Book(Lib):
             print("Книга выбрана: " + str(self.book))
             return(True)
         print("Такой книги нет")
-        return None
+        return False
     def add_chapter(self, name_chapter): # Функция добавления главы в книгу
         number = 0
         base_dir = Path(__file__).parent.parent
@@ -32,7 +31,7 @@ class Book(Lib):
         with open(book_info_path, 'w', encoding="utf-8") as info2:
             for line in lines:
                 info2.write(line)
-        return None
+        
     def delete_chapter(self,name_chapter):  #  Функция удаления главы
         number = 0
         base_dir = Path(__file__).parent.parent
