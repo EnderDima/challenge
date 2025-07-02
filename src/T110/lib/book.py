@@ -31,7 +31,6 @@ class Book(Lib):
         with open(book_info_path, 'w', encoding="utf-8") as info2:
             for line in lines:
                 info2.write(line)
-        
     def delete_chapter(self,name_chapter):  #  Функция удаления главы
         number = 0
         base_dir = Path(__file__).parent.parent
@@ -41,6 +40,7 @@ class Book(Lib):
             book_path = self.book_path / name_chapter
         except FileNotFoundError:
             print("Такой главы не существует")
+            return False
         book_info_path = self.book_path / 'info.txt'
         os.remove(book_path)
         for _item in os.listdir(self.book_path): # Смена информации о колличестве глав в файле с информацией
@@ -51,7 +51,6 @@ class Book(Lib):
         with open(book_info_path, 'w', encoding="utf-8") as info2:
             for line in lines:
                 info2.write(line)
-        return None
     def chenge_chapter(self, name_chapter, new_name_chapter): # Функция смены названия главы
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -62,4 +61,4 @@ class Book(Lib):
             os.rename(old_path, new_path)
         except FileNotFoundError:
             print("Такой главы не существует")
-        return None
+            return False
