@@ -15,16 +15,16 @@ class Lib():
         book_path = elektron_lib_path / name_book
         try:
             book_path.mkdir(exist_ok=False) # проверка на существование одинаковых по названию книг
+            book_path = elektron_lib_path / name_book / "info.txt" # Создание файла с информацией
+            with open(book_path, 'w', encoding="utf-8") as info:
+                # Запись данных в файл с информацией
+                info.write("Индекс: " + str(self.id) + '\n Название книги: ' + name_book + '\n глав 0')
+            with open(Path(__file__).parent / 'id' , 'w', encoding="utf-8" ) as id:
+                self.id = str(int(self.id)+1)
+                id.write(self.id)
         except FileExistsError:
             print("Книга с таким названием уже существует.")
-        book_path = elektron_lib_path / name_book / "info.txt" # Создание файла с информацией
-        with open(book_path, 'w', encoding="utf-8") as info:
-            # Запись данных в файл с информацией
-            info.write("Индекс: " + str(self.id) + '\n Название книги: ' + name_book + '\n глав 0')
-        with open(Path(__file__).parent / 'id' , 'w', encoding="utf-8" ) as id:
-            self.id = str(int(self.id)+1)
-            id.write(self.id)
-        return None
+            return False
     def delete_book(self, name_book): # Функция удаления книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'

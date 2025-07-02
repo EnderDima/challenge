@@ -28,7 +28,7 @@ while loop:
             choice_book = input("Введите название книги которую хотите редактировать: ")
             book = Book(choice_book)
             check_book = book.choose_book()
-            if check_book == True:
+            if check_book:
                 print("1 - Добавить главу в книгу")
                 print("2 - Изменить название главы")
                 print("3 - Удалить главу")
@@ -44,9 +44,9 @@ while loop:
                 elif choice_used_chapter == '3':
                     name_chapter = input("Введите название главу которую хотите удалить: ")+ '.txt'
                     book.delete_chapter(name_chapter)
-            else: 
+            else:
                 loop2 = False
     elif choice == '5':
         lib.full_info()
-    else: 
+    else:
         loop = False

@@ -38,19 +38,19 @@ class Book(Lib):
         elektron_lib_path.mkdir(exist_ok=True)
         try: # Проверка существования желаймой к удалению главы
             book_path = self.book_path / name_chapter
+            book_info_path = self.book_path / 'info.txt'
+            os.remove(book_path)
+            for _item in os.listdir(self.book_path): # Смена информации о колличестве глав в файле с информацией
+                number = number + 1
+            with open(book_info_path, 'r', encoding="utf-8") as info1:
+                lines = info1.readlines()
+                lines[2] = 'глав в книге ' + str(number-1)
+            with open(book_info_path, 'w', encoding="utf-8") as info2:
+                for line in lines:
+                    info2.write(line)
         except FileNotFoundError:
             print("Такой главы не существует")
             return False
-        book_info_path = self.book_path / 'info.txt'
-        os.remove(book_path)
-        for _item in os.listdir(self.book_path): # Смена информации о колличестве глав в файле с информацией
-            number = number + 1
-        with open(book_info_path, 'r', encoding="utf-8") as info1:
-            lines = info1.readlines()
-            lines[2] = 'глав в книге ' + str(number-1)
-        with open(book_info_path, 'w', encoding="utf-8") as info2:
-            for line in lines:
-                info2.write(line)
     def chenge_chapter(self, name_chapter, new_name_chapter): # Функция смены названия главы
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
