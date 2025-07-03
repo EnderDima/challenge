@@ -5,6 +5,7 @@ print("Добро пожаловать в игру!  Вам необходимо
 loop = True
 loop2 = True
 error = 7
+min_error = 2
 error_letter = []
 while loop:
     print("1 - Начать игру")
@@ -14,11 +15,11 @@ while loop:
         game.interface_string([], 'k')
         game.interface_figure(0)
         while loop2:
-            if error < 2:
+            if error < min_error:
                 loop2 = False
             letter = input("Введите букву: ").upper()
             game.check_letter(letter)
-            if game.check_error() == True:
+            if game.check_error():
                 error = error - 1
                 error_letter.append(letter)
             try:
@@ -31,4 +32,5 @@ while loop:
             if game.check_win():
                 print('Ура вы выйграли!!! \n\n')
                 loop2 = False
-    else: loop = False 
+    else: 
+        loop = False

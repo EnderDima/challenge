@@ -19,19 +19,21 @@ class Game(Interface):
                 letter = 'И'
             if lett == letter:
                 letter_number.append(id)
-        if self.interface_string(letter_number, letter) == False:
+        if not self.interface_string(letter_number, letter):
             self.error = True
     def check_error(self):
-        if self.error == True:
+        if self.error:
             self.error = False
-            return(True)
+            return True
+        return None
     def check_win(self):
         number2 = 0
         number = -1
-        for letter in self.word:
+        for _letter in self.word:
             number = number + 1
         for letter2 in self.letter:
             if letter2 != "__ ":
                 number2 = number2 + 1
         if number == number2:
             return True
+        return None
