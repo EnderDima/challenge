@@ -1,12 +1,10 @@
 from .interface import Interface
 
 class Game(Interface):
-
     def __init__(self):
         super().__init__()
         self.check_word = self.get_word()
         self.error = False
-
     def check_letter(self, letter):
         word = self.check_word
         print(word)
@@ -14,16 +12,15 @@ class Game(Interface):
         letter = letter.upper()
         letter_number = []
         for lett in word:
-            id = id  + 1 
+            id = id  + 1
             if letter == 'Ё':
                 letter = 'Е'
             if letter == 'Й':
-                letter = 'И'   
+                letter = 'И'
             if lett == letter:
                 letter_number.append(id)
         if self.interface_string(letter_number, letter) == False:
             self.error = True
-    
     def check_error(self):
         if self.error == True:
             self.error = False
@@ -35,6 +32,6 @@ class Game(Interface):
             number = number + 1
         for letter2 in self.letter:
             if letter2 != "__ ":
-                number2 = number2 + 1 
+                number2 = number2 + 1
         if number == number2:
             return True
