@@ -32,5 +32,5 @@ while loop:
             if game.check_win():
                 print('Ура вы выйграли!!! \n\n')
                 loop2 = False
-    else: 
+    else:
         loop = False

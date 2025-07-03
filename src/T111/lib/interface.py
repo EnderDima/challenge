@@ -23,14 +23,13 @@ class Interface():
             for lett in self.letter:
                 print(lett, end = " ")
             return False
-        else:
-            for number, _letter in enumerate(self.letter):
-                for number2 in number_letter:
-                    if number2 == number:
-                        self.letter[number] = letter2
-            for lett in self.letter:
-                print(lett, end = " ")
-        return
+        for number, _letter in enumerate(self.letter):
+            for number2 in number_letter:
+                if number2 == number:
+                    self.letter[number] = letter2
+        for lett in self.letter:
+            print(lett, end = " ")
+        return None
     def interface_figure(self, number_error):
         base_dir = Path(__file__).parent.parent
         fig_dir_path = base_dir/ 'fig'
