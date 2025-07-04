@@ -2,12 +2,14 @@ from pathlib import Path
 import os
 import shutil
 
+
 class Lib():
     def __init__(self):
         with open(Path(__file__).parent / 'id' , 'r', encoding="utf-8" ) as id:
             self.id = id.read()
         self.elektron_lib_path = Path(__file__).parent.parent / 'elektron_lib'
         self.elektron_lib_path.mkdir(exist_ok=True)
+
     def add_book(self, name_book): # функция добавления новой книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib' # Переход в директорию электронной библиотеки
@@ -25,6 +27,7 @@ class Lib():
         except FileExistsError:
             print("Книга с таким названием уже существует.")
             return False
+
     def delete_book(self, name_book): # Функция удаления книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -35,6 +38,7 @@ class Lib():
         except FileNotFoundError:
             print("Такой книги не существует")
             return False
+
     def chenge_name(self, name_book, new_name_book): # Функция по смене названия книги
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
@@ -46,6 +50,7 @@ class Lib():
         except FileNotFoundError:
             print("Такой книги не существует")
             return False
+
     def full_info(self): # Функция для вывода всей информации
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
