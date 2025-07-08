@@ -1,5 +1,6 @@
 from .interface import Interface
 
+
 class Game():
     def __init__(self, letter):
         super().__init__()
@@ -13,10 +14,10 @@ class Game():
         letter_number = []
         for lett in word:
             id = id + 1
-            if letter == 'Ё':
-                letter = 'Е'
-            if letter == 'Й':
-                letter = 'И'
+            if letter == "Ё":
+                letter = "Е"
+            if letter == "Й":
+                letter = "И"
             if lett == letter:
                 letter_number.append(id)
         if not Interface.interface_string(letter_number, letter):
@@ -32,7 +33,7 @@ class Game():
         for _letter in self.check_word:
             number = number + 1
         for letter2 in Interface(self.letter):
-            if letter2 != '__ ':
+            if letter2 != "__ ":
                 number2 = number2 + 1
         if number == number2:
             return True

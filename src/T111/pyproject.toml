@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 120
+
+# Настройки линтинга
+[tool.ruff.lint]
+select = ["E", "F", "B", "I"]
+ignore = ["E501", "COM812"]
+
+# Настройки форматирования
+[tool.ruff.format]
+indent-style = "space"  # Вместо indent-width. Варианты: "space" или "tab"
+quote-style = "double"
+docstring-code-format = true
