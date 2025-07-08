@@ -26,7 +26,7 @@ while loop:
                 game.interface_figure(7 - error)
             except FileNotFoundError:
                 loop2 = False
-            print('Ошибки (' + str(7 - error) + '): ', end = '')
+            print('Ошибки (' + str(7 - error) + '): ', end='')
             print(error_letter)
             print('Осталось ошибок ' + str(error))
             if game.check_win():

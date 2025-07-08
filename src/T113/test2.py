@@ -10,6 +10,7 @@ def max_digit(input_number):
             output_number = False
     return output_number
 
+
 number = input('Введите число: ')
 if not max_digit(number):
     sys.exit()

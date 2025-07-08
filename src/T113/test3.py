@@ -18,7 +18,7 @@ def clothing_selection(temperature):
                 clothe.append(file_name)
                 i += 1
         with suppress(IndexError, ValueError, UnboundLocalError):
-            clothes.update({ item : clothe[r.randint(0,i-1)]})
+            clothes.update({ item : clothe[r.randint(0, i - 1)]})
         clothe = []
         i = 0
     for path_type, path_file in clothes.items():
@@ -29,6 +29,8 @@ def clothing_selection(temperature):
     if clothes == {}:
         return 'Подходящей одежды нет:'
     return ''
+
+
 def create_clothes(name_clothe, type_clothe, temperature_min_clothe, temperature_max_clothe):
     temperature_clothe = str(temperature_min_clothe) + ' - ' + str(temperature_max_clothe)
     id = 0
@@ -43,9 +45,11 @@ def create_clothes(name_clothe, type_clothe, temperature_min_clothe, temperature
             break
         id += 1
     with open(file_path, 'a', encoding='utf-8') as data:
-        data.write(name_clothe + '\n' )
+        data.write(name_clothe + '\n')
         data.write(type_clothe + '\n')
         data.write(temperature_clothe + '\n')
+
+
 while True:
     print('1 - поборать одежду')
     print('2 - добавить одежду')

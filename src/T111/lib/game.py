@@ -1,12 +1,13 @@
 from .interface import Interface
 
 
-class Game():
+class Game:
     def __init__(self, letter):
         super().__init__()
         self.check_word = Interface.get_word()
         self.error = False
         self.letter = letter
+
     def check_letter(self, letter):
         word = self.check_word
         id = -1
@@ -22,11 +23,13 @@ class Game():
                 letter_number.append(id)
         if not Interface.interface_string(letter_number, letter):
             self.error = True
+
     def check_error(self):
         if self.error:
             self.error = False
             return True
         return None
+
     def check_win(self):
         number2 = 0
         number = -1

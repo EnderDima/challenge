@@ -24,7 +24,7 @@ class Book:
         book_info_path = self.book_path / 'info.txt'
         with open(book_path, 'w', encoding='utf-8') as info:
             info.write(' ')
-        for _item in os.listdir(self.book_path):  # Смена информации о колличестве глав в файле с информацией
+        for _item in os.listdir(self.book_path):   # Смена информации о колличестве глав в файле с информацией
             number = number + 1
         with open(book_info_path, 'r', encoding='utf-8') as info1:
             lines = info1.readlines()
@@ -54,9 +54,9 @@ class Book:
             print('Такой главы не существует')
             return False
 
-    def chenge_chapter(self, name_chapter, new_name_chapter): # Функция смены названия главы
+    def chenge_chapter(self, name_chapter, new_name_chapter):  # Функция смены названия главы
         base_dir = Path(__file__).parent.parent
-        elektron_lib_path = base_dir/ 'elektron_lib'
+        elektron_lib_path = base_dir / 'elektron_lib'
         elektron_lib_path.mkdir(exist_ok=True)
         try:  # Проверка на существование главы у которой необходимо переменовать название
             old_path = self.book_path / name_chapter
