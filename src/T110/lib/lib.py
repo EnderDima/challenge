@@ -12,7 +12,7 @@ class Lib():
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir/ 'elektron_lib'
         elektron_lib_path.mkdir(exist_ok=True)
-        self.book_path =  elektron_lib_path 
+        self.book_path =  elektron_lib_path
 
     def add_book(self, name_book): # функция добавления новой книги
         book_path = self.book_path / name_book
