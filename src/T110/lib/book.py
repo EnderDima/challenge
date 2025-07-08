@@ -3,13 +3,12 @@ from .lib import Lib
 import os
 
 class Book:
-
     def __init__(self, book):
         Lib.__init__(self)
         self.book = book
         self.book_path = self.elektron_lib_path / book
 
-    def choose_book(self): # Фунция проверки существования редактируемой книги
+    def choose_book(self):  # Фунция проверки существования редактируемой книги
         base_dir = self.book_path
         if base_dir.exists():
             print('Книга выбрана: ' + str(self.book))
@@ -17,9 +16,9 @@ class Book:
         print('Такой книги нет')
         return False
 
-    def add_chapter(self, name_chapter): # Функция добавления главы в книгу
+    def add_chapter(self, name_chapter):  # Функция добавления главы в книгу
         number = 0
-        book_path =  self.book_path / name_chapter
+        book_path = self.book_path / name_chapter
         book_info_path = self.book_path / 'info.txt'
         with open(book_path, 'w', encoding='utf-8') as info:
             info.write(' ')
@@ -32,7 +31,7 @@ class Book:
             for line in lines:
                 info2.write(line)
 
-    def delete_chapter(self,name_chapter):  #  Функция удаления главы
+    def delete_chapter(self, name_chapter):  # Функция удаления главы
         number = 0
         base_dir = Path(__file__).parent.parent
         elektron_lib_path = base_dir / 'elektron_lib'
