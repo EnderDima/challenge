@@ -53,7 +53,7 @@ class Lib:
         except FileNotFoundError:
             print('Такой книги не существует')
             return False
-        
+
     def full_info(self):  # Функция для вывода всей информации
         for dir in self.book_path.iterdir():
             info_dir = dir / 'info.txt'
