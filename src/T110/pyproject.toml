@@ -1,11 +1,9 @@
 [tool.ruff]
-line-length = 120  # Максимальная длина строки
-select = [         # Включаемые правила
-    "E",   # Ошибки (PEP 8)
-    "F",   # Ошибки форматирования
-    "I",   # Сортировка импортов
-    "B",   # Баги
-    "C",   # Сложность кода
-    "SIM", # Упрощения кода
-]
-ignore = ["E501", "COM812"]  # Игнорируемые правила
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["B", "COM", "N", "E", "ISC", "W", "F", "RET", "SIM", "PL"]
+
+[tool.ruff.format]
+quote-style = "single"
