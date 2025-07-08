@@ -1,14 +1,14 @@
 from lib import Game
 
 game = Game()
-print("Добро пожаловать в игру!  Вам необходимо угадать слово за 7 попыток. Выберите действие")
+print('Добро пожаловать в игру!  Вам необходимо угадать слово за 7 попыток. Выберите действие')
 loop = True
 loop2 = True
 error = 7
 min_error = 2
 error_letter = []
 while loop:
-    print("1 - Начать игру")
+    print('1 - Начать игру')
     print('2 - Выйти из игры')
     choise = input('< ')
     if choise == '1':
@@ -17,7 +17,7 @@ while loop:
         while loop2:
             if error < min_error:
                 loop2 = False
-            letter = input("Введите букву: ").upper()
+            letter = input('Введите букву: ').upper()
             game.check_letter(letter)
             if game.check_error():
                 error = error - 1
