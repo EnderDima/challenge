@@ -1,3 +1,4 @@
+from contextlib import suppress
 from pathlib import Path
 import random as r
 
@@ -15,9 +16,8 @@ def clothing_selection(temperature):
             if int(temperature_min) <= int(temperature) and int(temperature_max) >= int(temperature):
                 clothe.append(file_name)
                 i += 1
-        try:
+        with suppress(IndexError, ValueError, UnboundLocalError):
             clothes.update({ item : clothe[r.randint(0,i-1)]})
-        except (IndexError, ValueError, UnboundLocalError) as e: pass
         clothe = []
         i = 0
     for path_type, path_file in clothes.items():
@@ -26,8 +26,8 @@ def clothing_selection(temperature):
             lines = file.readlines()
             print(f'{lines[0].strip()} ({lines[1].strip()}) - Temperature = {lines[2].strip()}')
     if clothes == {}:
-        error = 'Подходящей одежды нет:'
-        return error
+        return 'Подходящей одежды нет:'
+    return ''
 def create_clothes(name_clothe, type_clothe, temperature_min_clothe, temperature_max_clothe):
     temperature_clothe = str(temperature_min_clothe) + ' - ' + str(temperature_max_clothe)
     id = 0
@@ -53,13 +53,12 @@ while True:
     if choice == '1':
         temperature = input('Какая температура на улице: ')
         print('Сегодня желательно надеть:')
-        if clothing_selection(temperature) != None:
-            print(clothing_selection(temperature))
+        print(clothing_selection(temperature))
     elif choice == '2':
         name = input('Введите название вещи: ')
         type_ = input('Введите тип вещи: ')
         temperature_min = input('Введите минимальную температуру: ')
         temperature_max = input('Введите максимальную температуру: ')
         create_clothes(name, type_, temperature_min, temperature_max)
-    else: break
-        
+    else:
+        break
