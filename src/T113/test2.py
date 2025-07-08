@@ -1,5 +1,6 @@
 import sys
 
+
 def max_digit(input_number):
     output_number = 0
     for n in str(input_number):

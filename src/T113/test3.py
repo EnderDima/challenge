@@ -1,6 +1,7 @@
+import random as r
 from contextlib import suppress
 from pathlib import Path
-import random as r
+
 
 def clothing_selection(temperature):
     i = 0
