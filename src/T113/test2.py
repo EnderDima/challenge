@@ -10,8 +10,8 @@ def max_digit(input_number):
             output_number = False
     return output_number
 
-number = input("Введите число: ")
+number = input('Введите число: ')
 if not max_digit(number):
     sys.exit()
-print("Максимальная цифра равна : ", end="")
+print('Максимальная цифра равна : ', end='')
 print(max_digit(number))
