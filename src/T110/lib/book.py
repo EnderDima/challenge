@@ -1,6 +1,8 @@
-from pathlib import Path
-from .lib import Lib
 import os
+from pathlib import Path
+
+from .lib import Lib
+
 
 class Book:
     def __init__(self, book):

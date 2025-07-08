@@ -1,5 +1,5 @@
-from lib.lib import Lib
 from lib.book import Book
+from lib.lib import Lib
 
 lib = Lib()
 loop = True
