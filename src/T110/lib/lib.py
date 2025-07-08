@@ -42,7 +42,7 @@ class Lib:
         book_info_path = book_path / 'info.txt'
         with open(book_info_path, 'r', encoding='utf-8') as info1:
             lines = info1.readlines()
-            lines[1] = ' Название книги: ' + new_name_book +'\n'
+            lines[1] = ' Название книги: ' + new_name_book + '\n'
         with open(book_info_path, 'w', encoding='utf-8') as info2:
             for line in lines:
                 info2.write(line)

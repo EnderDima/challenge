@@ -18,7 +18,7 @@ def clothing_selection(temperature):
                 clothe.append(file_name)
                 i += 1
         with suppress(IndexError, ValueError, UnboundLocalError):
-            clothes.update({ item : clothe[r.randint(0, i - 1)]})
+            clothes.update({item: clothe[r.randint(0, i - 1)]})
         clothe = []
         i = 0
     for path_type, path_file in clothes.items():
