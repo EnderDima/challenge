@@ -1,7 +1,7 @@
 from lib.lib import Lib
 from lib.book import Book
-lib = Lib()
 
+lib = Lib()
 loop = True
 while loop:
     print('Добро пожаловать в редактор библиотеки. Выберите действие:')
@@ -42,7 +42,7 @@ while loop:
                     new_name_chapter = input('Введите новое название: ') + '.txt'
                     book.chenge_chapter(old_name_chapter, new_name_chapter)
                 elif choice_used_chapter == '3':
-                    name_chapter = input('Введите название главу которую хотите удалить: ')+ '.txt'
+                    name_chapter = input('Введите название главу которую хотите удалить: ') + '.txt'
                     book.delete_chapter(name_chapter)
             else:
                 loop2 = False
