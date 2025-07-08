@@ -24,7 +24,7 @@ class Book:
         book_info_path = self.book_path / 'info.txt'
         with open(book_path, 'w', encoding='utf-8') as info:
             info.write(' ')
-        for _item in os.listdir(self.book_path):   # Смена информации о колличестве глав в файле с информацией
+        for _item in os.listdir(self.book_path):  # Смена информации о колличестве глав в файле с информацией
             number = number + 1
         with open(book_info_path, 'r', encoding='utf-8') as info1:
             lines = info1.readlines()
@@ -42,7 +42,7 @@ class Book:
             book_path = self.book_path / name_chapter
             book_info_path = self.book_path / 'info.txt'
             os.remove(book_path)
-            for _item in Path.listdir(self.book_path):  # Смена информации о колличестве глав в файле с информацией
+            for _item in os.listdir(self.book_path):  # Смена информации о колличестве глав в файле с информацией
                 number = number + 1
             with open(book_info_path, 'r', encoding='utf-8') as info1:
                 lines = info1.readlines()
